@@ -27,9 +27,7 @@ dp=Dispatcher(bot)
 
 ALLOWED_USERS = {
                 1630526670,
-                911415411,
-                6095446583,
-                1020429197}  # Разрешенные ID пользователей
+                911415411}  # Разрешенные ID пользователей
 
 async def check_user_permissions(user_id):
     return user_id in ALLOWED_USERS
