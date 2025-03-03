@@ -23,24 +23,26 @@ dp=Dispatcher(bot)
 
 
 
+#вход по ID
 
+# ALLOWED_USERS = {
+#                 1630526670,
+#                 911415411}  # Разрешенные ID пользователей
 
-ALLOWED_USERS = {
-                1630526670,
-                911415411}  # Разрешенные ID пользователей
+# async def check_user_permissions(user_id):
+#     return user_id in ALLOWED_USERS
 
-async def check_user_permissions(user_id):
-    return user_id in ALLOWED_USERS
+# @dp.message_handler(commands=['start'])
+# async def start_command(message: types.Message):
+#     user_id = message.from_user.id
+#     if await check_user_permissions(user_id):
+#         await message.answer('Привет!✋\nДобро пожаловать в наше мини приложение!\n\n🖥Сайт-"https://grixa08-mini-app-df0f.twc1.net/"\n\nЕсли вам нужна помошь, пиши - "/help"\n\n👤Аккаунт тех.поддережки - @grishka_00\n\n')
+#     else:
+#         await message.answer("У вас нет доступа к этому боту.")
 
 @dp.message_handler(commands=['start'])
-async def start_command(message: types.Message):
-    user_id = message.from_user.id
-    if await check_user_permissions(user_id):
-        await message.answer('Привет!✋\nДобро пожаловать в наше мини приложение!\n\n🖥Сайт-"Ссылка"\n\nЕсли вам нужна помошь, пиши - "/help"\n\n👤Аккаунт тех.поддережки - @grishka_00\n\n🧷Инструкция по использованию приложенияn\n🧷Инструкция по использованию бота')
-    else:
-        await message.answer("У вас нет доступа к этому боту.")
-
-
+async def help_command(message: types.Message):
+    await message.answer('Привет!✋\nДобро пожаловать в наше мини приложение!\n\n🖥Сайт-"https://grixa08-mini-app-df0f.twc1.net/"\n\nЕсли вам нужна помошь, пиши - "/help"\n\n👤Аккаунт тех.поддережки - @grishka_00\n\n')
 
 @dp.message_handler(commands=['help'])
 async def help_command(message: types.Message):
